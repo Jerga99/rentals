@@ -29,6 +29,12 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+
+    ENV['ember-cli-mirage'] = {
+     enabled: false
+    };
+
+    ENV['GOOGLE_MAPS_API_KEY']="AIzaSyAnrcRX7db4mR0c33riqUPA4NZi2vON68E";
   }
 
   if (environment === 'test') {

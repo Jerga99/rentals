@@ -7,6 +7,17 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('login');
+  this.route('signup');
+  this.route('about');
+  this.route('contact');
+  this.route('rentals', function() {
+    this.route('show', {path: '/:rental_id'});
+    this.route('new');
+  });
+  this.route('home');
+  this.route('my-bookings');
+  this.route('my-rentals');
 });
 
 export default Router;

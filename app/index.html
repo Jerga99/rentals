@@ -9,13 +9,18 @@
 
     {{content-for "head"}}
 
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Mukta+Malar:400,700" rel="stylesheet">
     <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
     <link integrity="" rel="stylesheet" href="{{rootURL}}assets/super-rentals.css">
 
     {{content-for "head-footer"}}
   </head>
   <body>
-    {{content-for "body"}}
+    <div id="bookingSync">
+      {{content-for "body"}}
+    </div>
+    <footer class="footer">© 2018 | Filip Jerga All rights reserved</footer>
 
     <script src="{{rootURL}}assets/vendor.js"></script>
     <script src="{{rootURL}}assets/super-rentals.js"></script>

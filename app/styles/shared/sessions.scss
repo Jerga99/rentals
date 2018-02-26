@@ -1,0 +1,35 @@
+#loginSection {
+  .login-form {
+    width: 300px;
+    margin: 0 auto;
+  }
+}
+
+#signupSection {
+  .signup-form {
+    width: 300px;
+    margin: 0 auto;
+    position: relative;
+
+    &.disabled {
+      form {
+        opacity: 0.5;
+      }
+
+      button {
+        pointer-events: none;
+      }
+    }
+  }
+
+  form {
+    margin-bottom: 20px;
+  }
+
+  .loader {
+    z-index: 1000;
+    position: absolute;
+    left: 100px;
+    top: 100px;
+  }
+}
