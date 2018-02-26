@@ -1,0 +1,21 @@
+<section id="rentalsListing">
+  {{#link-to "rentals.new" class="btn btn-primary float-right"}}
+    <span>Create Rental</span>
+  {{/link-to}}
+  {{#list-filter
+     filter=(action 'filterByCity')
+     as |groupedResults|}}
+    <div class="results">
+      {{#each groupedResults as |rentalGroup|}}
+        <div class="row result-row">
+          {{#each rentalGroup as |rentalUnit|}}
+          <div class="col-md-6 col-lg-4">
+            {{rental-listing rental=rentalUnit}}
+            </div>
+          {{/each}}
+        </div>
+      {{/each}}
+    </div>
+  {{/list-filter}}
+  {{outlet}}
+</section>
