@@ -13,11 +13,10 @@
               <p class="card-text">{{booking.rental.description}}</p>
               <p class="card-text">{{moment-format booking.start_at 'MM/DD/YYYY'}} - {{moment-format booking.end_at 'MM/DD/YYYY'}} | {{booking.days}} days</p>
               <p class="card-text"><span>Price: </span>{{booking.total_price}}$</p>
-              <p class="card-text"><span>Guests: </span>{{booking.guests}}</p>
               {{#link-to "rentals.show" booking.rental class="btn btn-primary"}}Go to rental{{/link-to}}
             </div>
             <div class="card-footer text-muted">
-              {{booking.created_at}}
+              Created {{moment-format booking.created_at 'MM/DD/YYYY'}}
             </div>
           </div>
         </div>
