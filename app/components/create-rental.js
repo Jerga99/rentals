@@ -6,6 +6,7 @@ const { get, set } = Ember;
 
 export default Component.extend({
   session: service('session'),
+  store: Ember.inject.service(),
   selectedOption: null,
   imageName: "",
 
@@ -18,7 +19,7 @@ export default Component.extend({
    uploadPhoto: task(function * (file, newRental) {
     this.set('imageName', get(file, 'name'));
     file.readAsDataURL().then(function (url) {
-      newRental.set('image', url);
+      newRental.image = url;
     });
   }).maxConcurrency(3).enqueue(),
 
@@ -33,7 +34,8 @@ export default Component.extend({
 
     createRental: function (newRental) {
       newRental.category = this.selectedOption;
-      newRental.save().then(rental => {
+
+      this.get('store').createRecord('rental', newRental).save().then(rental => {
         this.attrs.showRentalDetailsAction(rental.get('id'));
       }).catch(reason => this.set('errorMessage', reason.errors || reason));
     }
