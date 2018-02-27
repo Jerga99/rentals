@@ -3,7 +3,6 @@ import moment from 'moment';
 import Ember from 'ember';
 
 export default Controller.extend({
-   queryParams: ['isNewRental'],
    isNewRental: null,
    booking: null,
    user: null,
@@ -13,7 +12,7 @@ export default Controller.extend({
     const startDate =  moment().format();
     const endDate =  moment().add(1, 'days').format();
     const user = this.get('store').createRecord('user');
-    this.booking = this.get('store').createRecord('booking');
+    this.set('booking',this.get('store').createRecord('booking'));
     this.booking.set('user', user);
     this.booking.set('start_at', startDate);
     this.booking.set('end_at', endDate);
@@ -22,5 +21,11 @@ export default Controller.extend({
 
    init() {
     this.initBooking();
+   },
+
+   actions: {
+    reload: function() {
+      this.initBooking();
+    }
    }
 });
