@@ -8,5 +8,6 @@ export default Component.extend({
     this._super(...arguments);
     let location = this.get('location');
     let mapElement = this.get('maps').getMapElement(location);
+    $("#map" ).replaceWith(mapElement);
   }
 });

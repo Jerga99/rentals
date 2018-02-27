@@ -9,6 +9,7 @@ export default Component.extend({
   store: Ember.inject.service(),
   selectedOption: null,
   imageName: "",
+  isLoading: false,
 
   communityPropertyTypes: [
   'Condo',
@@ -35,9 +36,13 @@ export default Component.extend({
     createRental: function (newRental) {
       newRental.category = this.selectedOption;
 
+      this.set('isLoading', true);
       this.get('store').createRecord('rental', newRental).save().then(rental => {
+        this.set('isLoading', false);
         this.attrs.showRentalDetailsAction(rental.get('id'));
-      }).catch(reason => this.set('errorMessage', reason.errors || reason));
+      }).catch(reason => {
+        this.set('isLoading', false);
+        this.set('errorMessage', reason.errors || reason);});
     }
   }
 });
