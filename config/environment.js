@@ -34,7 +34,7 @@ module.exports = function(environment) {
      enabled: false
     };
 
-    ENV['GOOGLE_MAPS_API_KEY']="AIzaSyAnrcRX7db4mR0c33riqUPA4NZi2vON68E";
+    ENV['RENTAL_API'] = "http://localhost:3000"
   }
 
   if (environment === 'test') {
@@ -51,6 +51,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
+    ENV['RENTAL_API'] = "https://rentals-sync-api.herokuapp.com"
   }
 
   return ENV;

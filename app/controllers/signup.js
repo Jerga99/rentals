@@ -15,16 +15,10 @@ export default Controller.extend({
           this.transitionToRoute('login', {
             queryParams: { registered: 'true' }
           });
-          // this.set('successMessage', "Successfuly registered, proceed to login. ");
         }).catch(reason => {
           this.set('isLoading', false);
           this.set('errorMessage', reason.errors || reason);
         });
-      },
-      test() {
-        this.transitionToRoute('login', {
-            queryParams: { registered: 'true' }
-          });
       }
     }
   });
