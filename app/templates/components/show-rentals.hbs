@@ -1,5 +1,6 @@
 <section id="myRentals">
   <h1 class="text-center">My Rentals</h1>
+
   {{#each orderedRentals as |rentalGroup|}}
     <div class="row">
       {{#each rentalGroup as |rental|}}
@@ -34,6 +35,10 @@
           </div>
         </div>
       {{/each}}
+    </div>
+  {{else}}
+    <div class="alert alert-warning">
+      You have no rentals created go and create your rental now.
     </div>
   {{/each}}
 </section>

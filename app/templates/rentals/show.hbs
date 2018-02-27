@@ -30,7 +30,7 @@
           <span>{{fa-icon "bed"}} {{multiply model.bedrooms 2}} beds</span>
         </div>
         <p class="description">{{model.description}}</p>
-        {{create-booking user=user rental=model booking=booking }}
+        {{create-booking user=user rental=model booking=booking reloadBooking=(action "reload")}}
       </div>
     </div>
   </div>

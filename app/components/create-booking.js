@@ -4,6 +4,7 @@ import moment from 'moment';
 
 export default Component.extend({
   session: Ember.inject.service('session'),
+  store: Ember.inject.service(),
   dates: Ember.inject.service('dates'),
   notify: Ember.inject.service('notify'),
   bookingUtils: Ember.inject.service('booking-utils'),
@@ -56,6 +57,7 @@ export default Component.extend({
         this.get('bookingUtils')
         .totalPrice(this.booking.get('rental.daily_rate'), this.booking.get('days')))
       this.booking.save().then(() => {
+        this.attrs.reloadBooking();
         this.toggleProperty('isShowingModal');
         this.get('notify').success('Booking succesfuly created, you can check details of your booking in Rental managment section');
       }).catch(reason => this.set('errorMessage', reason.errors || reason));
