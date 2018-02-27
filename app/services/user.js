@@ -23,5 +23,9 @@ export default Service.extend({
     }
 
     return {};
+  },
+
+  isAuthenticatedUser(rentalUser) {
+    return user.email === rentalUser.email;
   }
 });
