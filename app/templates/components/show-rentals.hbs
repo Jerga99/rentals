@@ -10,23 +10,18 @@
               <h4 class="card-title">{{rental.title}} - {{rental.city}}</h4>
               {{#link-to "rentals.show" rental class="btn btn-primary"}}Go to rental{{/link-to}}
               {{#if rental.bookings }}
-                <button {{action "toggleModal"}} class="btn btn-success">Bookings</button>
-                {{#if isShowingModal}}
-                  {{#modal-dialog onClose="toggleModal"
-                    targetAttachment="center"
-                    translucentOverlay=true
-                    containerClass="bookingModal"}}
+                <button onclick={{action "toggleModal"}} data-rental="rental-{{index}}" class="btn btn-success">Bookings</button>
+                  <div class="bookings-container">
                     {{#each rental.bookings as |booking|}}
-                      <div class="booking-container">
+                      <div class="bookings-inner-container">
                         <p><span>Date:</span> {{booking.start_at}} - {{booking.end_at}}</p>
                         <p><span>Guests:</span> {{booking.guests}}</p>
-                        <p><span>Total Price:</span> {{booking.total_price}}</p>
+                        <p><span>Total Price:</span> {{booking.total_price}} $</p>
                         <hr>
                       </div>
                     {{/each}}
-                    <button {{action "toggleModal"}} class="btn btn-warning">Close</button>
-                  {{/modal-dialog}}
-                {{/if}}
+                  </div>
+
               {{/if}}
             </div>
             <div class="card-footer text-muted">

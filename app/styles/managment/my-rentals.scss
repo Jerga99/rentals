@@ -1,11 +1,15 @@
-.bookingModal {
-  .booking-container {
-    margin-bottom: 10px;
-    span {
-      font-weight: bold;
-    }
+
+.bookings-container {
+  margin-top: 10px;
+  display: none;
+}
+
+.bookings-inner-container {
+  p {
+    margin-bottom: 3px;
   }
 }
+
 
 #myRentals {
   .card {
