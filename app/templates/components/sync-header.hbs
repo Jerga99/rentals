@@ -2,9 +2,15 @@
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  {{#link-to "rentals" class="navbar-brand"}}
-    <img width="200" height="30" src="/assets/images/logo.png" alt="booking sync logo">
-  {{/link-to}}
+  {{#if session.isAuthenticated}}
+    {{#link-to "rentals" class="navbar-brand"}}
+      <img width="200" height="30" src="/assets/images/logo.png" alt="booking sync logo">
+    {{/link-to}}
+  {{else}}
+    {{#link-to "home" class="navbar-brand"}}
+      <img width="200" height="30" src="/assets/images/logo.png" alt="booking sync logo">
+    {{/link-to}}
+  {{/if}}
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       {{#if session.isAuthenticated}}
