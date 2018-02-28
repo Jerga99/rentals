@@ -35,6 +35,11 @@ export default Component.extend({
     }
   },
 
+  reloadBookingDates(){
+    this.get('rental').reload().then(() => this.getTakenDates());
+    this.attrs.reloadBooking();
+  },
+
   setDate() {
     const datesRange = this.get('dates').getRangeOfDates(this.booking.get('start_at'), this.booking.get('end_at'));
     this.booking.set('days', datesRange.length);
@@ -56,8 +61,8 @@ export default Component.extend({
       this.booking.set('total_price',
         this.get('bookingUtils')
         .totalPrice(this.booking.get('rental.daily_rate'), this.booking.get('days')))
-      this.booking.save().then(() => {
-        this.attrs.reloadBooking();
+      this.booking.save().then((booking) => {
+        this.reloadBookingDates();
         this.toggleProperty('isShowingModal');
         this.get('notify').success('Booking succesfuly created, you can check details of your booking in Rental managment section');
       }).catch(reason => this.set('errorMessage', reason.errors || reason));
