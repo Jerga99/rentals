@@ -12,7 +12,8 @@ export default Component.extend({
   },
 
   actions: {
-    toggleModal: function(){
+    toggleModal: function(event){
+      $(event.target).next().toggle();
       this.toggleProperty('isShowingModal');
     }
   }
