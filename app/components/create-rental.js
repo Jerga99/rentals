@@ -37,10 +37,12 @@ export default Component.extend({
       newRental.category = this.selectedOption;
 
       this.set('isLoading', true);
-      this.get('store').createRecord('rental', newRental).save().then(rental => {
+      const rentalRecord =  this.get('store').createRecord('rental', newRental);
+      rentalRecord.save().then(rental => {
         this.set('isLoading', false);
         this.attrs.showRentalDetailsAction(rental.get('id'));
       }).catch(reason => {
+        this.get('store').deleteRecord(rentalRecord);
         this.set('isLoading', false);
         this.set('errorMessage', reason.errors || reason);});
     }
