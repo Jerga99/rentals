@@ -1,4 +1,4 @@
-<div class="signup-form {{if isLoading "disabled"}}">
+<div class="signup-form loading-form {{if isLoading "disabled"}}">
   {{#if isLoading}}
     <div class="loader"></div>
   {{/if}}
@@ -19,7 +19,7 @@
       <label for="password_confirmation">Password Confirmation</label>
       {{input value=user.password_confirmation type="password" placeholder="enter password again" class="form-control"}}
     </div>
-    <button class="btn btn-primary" type="submit">Register</button>
+    <button class="btn btn-primary clickable" type="submit">Register</button>
   </form>
   {{#if successMessage}}
     <div class="alert alert-success">
