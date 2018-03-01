@@ -3,6 +3,11 @@
   color: $listing-font;
   margin-bottom: 60px;
 
+  .btn {
+      height: 38px;
+      font-family: 'Mukta Malar', sans-serif;
+    }
+
   .rental-link {
     text-decoration: none;
     color: inherit;
@@ -64,13 +69,22 @@
     margin-bottom: 30px;
   }
 
-  .city-filter {
-    display: block;
-    width: 300px;
-    height: 40px;
-    margin: 20px auto;
-    padding-left: 20px;
+  .listing-header {
+    margin: 20px 0;
+  }
 
+  .search-container {
+    width: 300px;
+
+    .search-form {
+      margin-bottom: 20px;
+    }
+
+    .city-filter {
+      height: 40px;
+      width: 200px;
+
+      padding-left: 20px;
       input[type=text], textarea {
       -webkit-transition: all 0.30s ease-in-out;
       -moz-transition: all 0.30s ease-in-out;
@@ -82,11 +96,12 @@
       border: 1px solid #DDDDDD;
     }
 
-    input[type=text]:focus, textarea:focus {
-      box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-      padding: 3px 0px 3px 3px;
-      margin: 5px 1px 3px 0px;
-      border: 1px solid rgba(81, 203, 238, 1);
+      input[type=text]:focus, textarea:focus {
+        box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+        padding: 3px 0px 3px 3px;
+        margin: 5px 1px 3px 0px;
+        border: 1px solid rgba(81, 203, 238, 1);
+      }
     }
   }
 }
